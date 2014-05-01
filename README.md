@@ -1,4 +1,4 @@
-### Composer setup
+## Composer setup
 
 In the `require` key of `composer.json` file add the following
 ```json
@@ -14,7 +14,7 @@ _OR_
 
 You can run the command `composer require connorvg/laravel-transform` from the command line interface.
 
-### Laravel
+## Laravel
 
 If you're using laravel, add this service provider:
 ```php
@@ -39,7 +39,7 @@ Array of aliases *optional*
 );
 ```
 
-## Input
+#### Input
 
 Input can be anything that is an array or an object with a method 'toArray()' which returns an array. You can also have meta-arrays (multidimensional arrays) and the framework will figure this out for you.
 
@@ -55,13 +55,13 @@ EG:
 ]
 ```
 
-## Definitions
+#### Definitions
 
 Definitions are used to define types, this will cast values to types where required.
 
 EG:
 
-# Input
+##### Input
 ```php
 $input = [
     'some_number' => '18',
@@ -72,7 +72,7 @@ $input = [
 ]
 ```
 
-# Definitions
+##### Definitions
 
 Definitions are used to define a value as a type, this actually sets the object type (IE: from `'5'` to `5`).
 
@@ -124,7 +124,7 @@ These, used as: `Transform::make($input, $defs);` will output:
 
 *NOTE: These types of definitions CAN be used together*
 
-# Aliases
+#### Aliases
 
 Aliases are ways of hiding are renaming fields, this is great for API usage. To hide a value just set it's alias to `null`.
 
@@ -189,7 +189,7 @@ Will output:
 Don't be afraid to nest, full nesting is available because every array is treated as a root.
 
 
-### Example
+#### Example
 
 ```php
 // CALL //

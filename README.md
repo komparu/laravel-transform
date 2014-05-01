@@ -187,3 +187,67 @@ Will output:
 ```
 
 Don't be afraid to nest, full nesting is available because every array is treated as a root.
+
+
+### Example
+
+```php
+// CALL //
+User::with('account')->first();
+
+// OUTPUT //
+{
+    id: "1",
+    name: "Connor Parks",
+    url_name: "connor-parks",
+    created_at: "2014-04-30 09:50:08",
+    updated_at: "2014-04-30 09:50:08",
+    account: {
+        id: "2",
+        email: "Connor@ConnorVG.tv",
+        remember_token: "SOME_CODE",
+        confirmation_code: "",
+        confirmed: "1",
+        accountable_id: "1",
+        accountable_type: "User",
+        created_at: "2014-04-30 09:50:08",
+        updated_at: "2014-04-30 10:03:10"
+    }
+}
+
+// CALL //
+Transform::make(User::with('account')->first(),
+    [
+        'id'         => 'int',
+        'account' => [
+            'confirmed' => 'bool'
+        ]
+    ],
+    [
+        'created_at' => 'since',
+        'updated_at' => null,
+        'account' => [ null, [
+            'id'                => null,
+            'remember_token'    => null,
+            'confirmation_code' => null,
+            'accountable_id'    => null,
+            'accountable_type'  => 'type',
+            'created_at'        => null,
+            'updated_at'        => null
+        ]]
+    ]
+);
+
+// OUTPUT //
+{
+    id: 1,
+    name: "Connor Parks",
+    url_name: "connor-parks",
+    since: "2014-04-30 09:50:08",
+    account: {
+        email: "Connor@ConnorVG.tv",
+        confirmed: true,
+        type: "User"
+    }
+}
+```

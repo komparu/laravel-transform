@@ -218,7 +218,7 @@ User::with('account')->first();
 // CALL //
 Transform::make(User::with('account')->first(),
     [
-        'id'         => 'int',
+        'id'      => 'int',
         'account' => [
             'confirmed' => 'bool'
         ]
@@ -226,7 +226,7 @@ Transform::make(User::with('account')->first(),
     [
         'created_at' => 'since',
         'updated_at' => null,
-        'account' => [ null, [
+        'account'    => [ null, [
             'id'                => null,
             'remember_token'    => null,
             'confirmation_code' => null,

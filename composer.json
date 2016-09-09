@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Komparu\\Transform\\": "src/"
+      "ConnorVG\\Transform\\": "src/"
     }
   },
   "minimum-stability": "dev"
